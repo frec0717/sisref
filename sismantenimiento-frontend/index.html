@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Mantenimiento - Personal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Personal</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="px-4 py-2">
+            <div id="jqxRibbonMenu">
+                <ul>
+                    <li>Opciones</li>
+                </ul>
+                <div>
+                    <div>
+                        <div class="d-flex flex-row">
+                            <div class="m-2">
+                                <input type="button" value="Crear registro" id='jqxbuttonCrear' />
+                            </div>
+                            <div class="m-2">
+                                <input type="button" value="Editar registro" id='jqxbuttonEditar' />
+                            </div>
+                            <div class="m-2">
+                                <input type="button" value="Eliminar registro" id='jqxbuttonEliminar' />
+                            </div>
+                            <div class="m-2">
+                                <input type="button" value="Exportar a PDF" id='jqxbuttonExportarPDF' />
+                            </div>
+                            <div class="m-2">
+                                <input type="button" value="Exportar a XLS" id='jqxbuttonExportarXLS' />
+                            </div>
+                            <div class="m-2">
+                                <input type="button" value="Imprimir" id='jqxbuttonImprimir' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="jqxNotificacionExitoEliminar">Se eliminó el registro exitosamente.</div>
+        <div id="jqxNotificacionErrorEliminar">No se pudo eliminar el registro.</div>
+
+        <div class="px-5 text-center container">
+            <div>
+                <div id="jqxgridPersonal"></div>
+            </div>
+        </div>
+
+        <div id='jqxwindowCrear'>
+            <div class="text-center">
+                <div id="jqxformCrear">
+                </div>
+                <div style="width: 100%; text-align: center;">
+                    <div style="display: inline-flex; text-align: center; margin-top:10px;">
+                        <input type="button" id="crearBtn" style="margin-right: 10px" />
+                        <input type="button" id="cancelarCrearBtn" />
+                    </div>
+                </div>
+                <div id="jqxNotificacionExitoCrear">Se creó el registro exitosamente.</div>
+                <div id="jqxNotificacionErrorCrear">No se pudo crear el registro.</div>
+            </div>
+        </div>
+
+        <div id='jqxwindowEditar'>
+            <div class="text-center">
+                <div id="jqxformEditar">
+                </div>
+                <div style="width: 100%; text-align: center;">
+                    <div style="display: inline-flex; text-align: center; margin-top:10px;">
+                        <input type="button" id="editarBtn" style="margin-right: 10px" />
+                        <input type="button" id="cancelarEditarBtn" />
+                    </div>
+                </div>
+                <div id="jqxNotificacionExitoEditar">Se editó el registro exitosamente.</div>
+                <div id="jqxNotificacionErrorEditar">No se pudo editar el registro.</div>
+            </div>
+        </div>
+    </main>
+
+
+    <script type="text/javascript"
+        src="./lib/scripts/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.android.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.arctic.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.base.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.black.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.blackberry.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.blue.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.bootstrap.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.classic.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.dark-ie.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.dark.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.darkblue.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.energyblue.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.flat.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.fresh.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.glacier.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.highcontrast.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.light-ie.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.light.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.material-green.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.material-purple.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.material.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.metro.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.metrodark.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.mobile.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.office.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.orange.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.shinyblack.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.summer.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-darkness.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-le-frog.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-lightness.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-overcast.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-redmond.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-smoothness.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-start.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.ui-sunny.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.web.css">
+    <link rel="stylesheet" href="./lib/jqwidgets/styles/jqx.windowsphone.css">
+
+
+    <script type="text/javascript" src="./lib/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript"
+        src="./lib/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript"
+        src="./lib/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript"
+        src="./lib/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxsortable.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxribbon.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxcombobox.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxform.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="./lib/jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript"
+    src="./lib/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript"
+    src="./lib/jqwidgets/jqxnotification.js"></script>
+    
+    <script type="text/javascript" src="./js/rutas.js"></script>
+    <script type="text/javascript" src="./js/utils.js"></script>
+    <script type="text/javascript" src="./js/mantemiento.js"></script>
+</body>
+
+</html>
